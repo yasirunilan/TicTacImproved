@@ -29,58 +29,48 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.labelHighScoreEasy = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3});
-            this.dataGridView1.Location = new System.Drawing.Point(0, 41);
+            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dataGridView1.Location = new System.Drawing.Point(-1, 40);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(308, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(308, 271);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // Column1
+            // labelHighScoreEasy
             // 
-            this.Column1.HeaderText = "Player Name";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Player";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Computer";
-            this.Column3.Name = "Column3";
+            this.labelHighScoreEasy.AutoSize = true;
+            this.labelHighScoreEasy.Location = new System.Drawing.Point(99, 19);
+            this.labelHighScoreEasy.Name = "labelHighScoreEasy";
+            this.labelHighScoreEasy.Size = new System.Drawing.Size(133, 13);
+            this.labelHighScoreEasy.TabIndex = 1;
+            this.labelHighScoreEasy.Text = "High Scores of Easy Mode";
             // 
             // History
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(308, 261);
+            this.ClientSize = new System.Drawing.Size(308, 323);
+            this.Controls.Add(this.labelHighScoreEasy);
             this.Controls.Add(this.dataGridView1);
             this.MaximizeBox = false;
             this.Name = "History";
             this.Text = "History";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         public System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label labelHighScoreEasy;
     }
 }

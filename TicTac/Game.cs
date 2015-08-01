@@ -28,7 +28,7 @@ namespace TicTac
         int Player2Win = 0;
         History history = new History();
         String MyConnectionString = "Server=localhost;Database=tic;Uid=root;Pwd=qwerty";
-        
+        MySqlCommand cmd;
         
         private void buttonA0_Click(object sender, EventArgs e)
         {
@@ -74,11 +74,11 @@ namespace TicTac
             level = labelLevel.Text;
 
             MySqlConnection connection = new MySqlConnection(MyConnectionString);
-            MySqlCommand cmd;
+            
 
 
-            DialogResult exit = MessageBox.Show("Want to save?", "Save", MessageBoxButtons.YesNoCancel);
-            if (exit == DialogResult.Yes)
+            DialogResult save = MessageBox.Show("Want to save?", "Save", MessageBoxButtons.YesNoCancel);
+            if (save == DialogResult.Yes)
             {
                 connection.Open();
                 try
@@ -100,11 +100,11 @@ namespace TicTac
                     if (connection.State == ConnectionState.Open)
                     {
                         connection.Close();
-                        LoadData();
+                        //LoadData();
                     }
                 }
             }
-            else if (exit == DialogResult.No)
+            else if (save == DialogResult.No)
             {
                 System.Windows.Forms.Application.Exit();
             }
@@ -567,7 +567,14 @@ namespace TicTac
 
         private void buttonHistory_Click(object sender, EventArgs e)
         {
-            
+            if (level == "easy")
+            {
+                LoadEasyData();
+            }
+            else if (level == "hard")
+            {
+                LoadHardData();
+            }
             
         }
 
@@ -607,15 +614,44 @@ namespace TicTac
 
         }
 
-        private void LoadData()
+        private void LoadEasyData()
         {
             history.Visible = true;
             MySqlConnection connection = new MySqlConnection(MyConnectionString);
             connection.Open();
             try
             {
-                MySqlCommand cmd = connection.CreateCommand();
+                cmd = connection.CreateCommand();
                 cmd.CommandText = "SELECT * FROM history_easy";
+                MySqlDataAdapter adapt = new MySqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adapt.Fill(ds);
+                history.dataGridView1.DataSource = ds.Tables[0].DefaultView;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Clone();
+                }
+            }
+        }
+
+
+        private void LoadHardData()
+        {
+            history.Visible = true;
+            MySqlConnection connection = new MySqlConnection(MyConnectionString);
+            connection.Open();
+            try
+            {
+                cmd = connection.CreateCommand();
+                cmd.CommandText = "SELECT * FROM history_hard";
                 MySqlDataAdapter adapt = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 adapt.Fill(ds);
