@@ -15,10 +15,13 @@ namespace TicTac
     {
         public Game()
         {
+            
             InitializeComponent();
+            this.ControlBox = false;
         }
-         
+        Menu menu = new Menu();
         int turnCount = 0;
+        int random = 0;
         Random rnd = new Random();
         int[] numbers = new int[9];
         String winner;
@@ -27,9 +30,11 @@ namespace TicTac
         int Player1Win = 0;
         int Player2Win = 0;
         History history = new History();
-        String MyConnectionString = "Server=localhost;Database=tic;Uid=root;Pwd=qwerty";
+        String MyConnectionString = "Server=localhost;Database=tictactoe;Uid=root;Pwd=qwerty";
         MySqlCommand cmd;
-        
+
+        #region buttonA0Click
+
         private void buttonA0_Click(object sender, EventArgs e)
         {
             //increment the turn counter with the button click
@@ -56,61 +61,32 @@ namespace TicTac
             {
                 winner=CheckConditions();
             }
-            else if (mode == "Two Player")
+            else if (labelMode.Text == "Two Player")
             {
-                winner=CheckForWin();
+                labelLevel.Text = "arrived here";
+                winner=winner=CheckForWin();
             }
 
             labelWinner.Text = winner;
             
         }
 
+        #endregion
+
+        #region ExitButton
+
         private void buttonExit_Click(object sender, EventArgs e)
         {
-            String GameWinner = winner;
-            int Player1Score = Player1Win;
-            int Player2Score = Player2Win;
-            mode = labelMode.Text;
-            level = labelLevel.Text;
-
-            MySqlConnection connection = new MySqlConnection(MyConnectionString);
-            
-
-
-            DialogResult save = MessageBox.Show("Want to save?", "Save", MessageBoxButtons.YesNoCancel);
-            if (save == DialogResult.Yes)
-            {
-                connection.Open();
-                try
-                {
-                    cmd = connection.CreateCommand();
-                    cmd.CommandText = "INSERT INTO history_easy(scoreP,name,scoreC) VALUES(@scoreP,@name,@scoreC)";
-                    cmd.Parameters.AddWithValue("@scoreP", Player1Score);
-                    cmd.Parameters.AddWithValue("@name", Name);
-                    cmd.Parameters.AddWithValue("@scoreC", Player2Score);
-                    
-                    cmd.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    if (connection.State == ConnectionState.Open)
-                    {
-                        connection.Close();
-                        //LoadData();
-                    }
-                }
-            }
-            else if (save == DialogResult.No)
+            DialogResult exit = MessageBox.Show("Want to exit?", "Exit", MessageBoxButtons.YesNo);
+            if (exit == DialogResult.Yes)
             {
                 System.Windows.Forms.Application.Exit();
             }
-            
-        }
+         }
 
+        #endregion
+
+        #region TurnChanger
 
         private void TurnChanger(int turnCount)
         {
@@ -124,6 +100,10 @@ namespace TicTac
             }
         }
 
+        #endregion
+
+        #region CheckConditions
+
         private String CheckConditions()
         {
             if (labelLevel.Text == "easy")
@@ -132,12 +112,14 @@ namespace TicTac
             }
             else if (labelLevel.Text == "hard")
             {
-
+                winner = HardPlay();
             }
 
             return winner;
         }
+        #endregion
 
+        #region CheckForWin
 
         private String CheckForWin()
         {
@@ -259,6 +241,9 @@ namespace TicTac
 
 
         }
+        #endregion
+
+        #region buttonA1Click
 
         private void buttonA1_Click(object sender, EventArgs e)
         {
@@ -286,13 +271,17 @@ namespace TicTac
             {
                 winner = CheckConditions();
             }
-            else if (mode == "Two Player")
+            else if (labelMode.Text == "Two Player")
             {
-                winner = CheckForWin();
+                winner = winner=CheckForWin();
             }
 
             labelWinner.Text = winner;
         }
+
+        #endregion
+
+        #region buttonA2Click
 
         private void buttonA2_Click(object sender, EventArgs e)
         {
@@ -320,13 +309,17 @@ namespace TicTac
             {
                 winner = CheckConditions();
             }
-            else if (mode == "Two Player")
+            else if (labelMode.Text == "Two Player")
             {
-                winner = CheckForWin();
+                winner = winner=CheckForWin();
             }
 
             labelWinner.Text = winner;
         }
+
+        #endregion
+
+        #region buttonB0Click
 
         private void buttonB0_Click(object sender, EventArgs e)
         {
@@ -354,13 +347,16 @@ namespace TicTac
             {
                 winner = CheckConditions();
             }
-            else if (mode == "Two Player")
+            else if (labelMode.Text == "Two Player")
             {
-                winner = CheckForWin();
+                winner = winner=CheckForWin();
             }
 
             labelWinner.Text = winner;
         }
+        #endregion
+
+        #region buttonB1Click
 
         private void buttonB1_Click(object sender, EventArgs e)
         {
@@ -388,13 +384,16 @@ namespace TicTac
             {
                 winner = CheckConditions();
             }
-            else if (mode == "Two Player")
+            else if (labelMode.Text == "Two Player")
             {
-                winner = CheckForWin();
+                winner = winner=CheckForWin();
             }
 
             labelWinner.Text = winner;
         }
+        #endregion
+
+        #region buttonB2Click
 
         private void buttonB2_Click(object sender, EventArgs e)
         {
@@ -422,13 +421,17 @@ namespace TicTac
             {
                 winner = CheckConditions();
             }
-            else if (mode == "Two Player")
+            else if (labelMode.Text == "Two Player")
             {
-                winner = CheckForWin();
+                winner = winner=CheckForWin();
             }
 
             labelWinner.Text = winner;
         }
+        #endregion
+
+
+        #region buttonC0Click
 
         private void buttonC0_Click(object sender, EventArgs e)
         {
@@ -456,13 +459,16 @@ namespace TicTac
             {
                 winner = CheckConditions();
             }
-            else if (mode == "Two Player")
+            else if (labelMode.Text == "Two Player")
             {
-                winner = CheckForWin();
+                winner = winner=CheckForWin();
             }
 
             labelWinner.Text = winner;
         }
+        #endregion
+
+        #region buttonC1Click
 
         private void buttonC1_Click(object sender, EventArgs e)
         {
@@ -490,13 +496,16 @@ namespace TicTac
             {
                 winner = CheckConditions();
             }
-            else if (mode == "Two Player")
+            else if (labelMode.Text == "Two Player")
             {
-                winner = CheckForWin();
+                winner = winner=CheckForWin();
             }
 
             labelWinner.Text = winner;
         }
+        #endregion
+
+        #region buttonC2Click
 
         private void buttonC2_Click(object sender, EventArgs e)
         {
@@ -524,13 +533,17 @@ namespace TicTac
             {
                 winner = CheckConditions();
             }
-            else if (mode == "Two Player")
+            else if (labelMode.Text == "Two Player")
             {
-                winner = CheckForWin();
+                winner = winner=CheckForWin();
             }
 
             labelWinner.Text = winner;
         }
+
+        #endregion
+
+        #region NewButton
 
         private void buttonNew_Click(object sender, EventArgs e)
         {
@@ -561,23 +574,36 @@ namespace TicTac
             labelTurnIndicator.Text = "Start The Game";
             labelWinner.Text =  "";
 
-            
-
         }
+
+        #endregion
+
+        #region HistoryButton
 
         private void buttonHistory_Click(object sender, EventArgs e)
         {
-            if (level == "easy")
+            
+            if (labelLevel.Text=="easy")
             {
+                history.Visible = true;
                 LoadEasyData();
+
             }
-            else if (level == "hard")
+            else if (labelLevel.Text == "hard")
             {
+                history.Visible = true;
                 LoadHardData();
+            }
+            else
+            {
+                MessageBox.Show("This feature is not availabe for two player mode", "History");
             }
             
         }
 
+        #endregion
+
+        #region EasyPlay
 
         private String EasyPlay()
         {
@@ -588,7 +614,7 @@ namespace TicTac
                 Button[] btnarray = { buttonA0, buttonA1, buttonA2, buttonB0,buttonB1, buttonB2,buttonC0, buttonC1, buttonC2};
 
 
-                int random = 0;
+                
                 //if game has not ended
                 if (turnCount != 9)
                 {
@@ -606,7 +632,7 @@ namespace TicTac
                 //change the turn
                 TurnChanger(turnCount);
                 //check for a winner
-                winner=CheckForWin();
+                winner = CheckForWin();
             }
 
             return winner;
@@ -614,15 +640,19 @@ namespace TicTac
 
         }
 
+        #endregion
+
+        #region LoadEasyData
+
         private void LoadEasyData()
         {
-            history.Visible = true;
+            
             MySqlConnection connection = new MySqlConnection(MyConnectionString);
             connection.Open();
             try
             {
                 cmd = connection.CreateCommand();
-                cmd.CommandText = "SELECT * FROM history_easy";
+                cmd.CommandText = "SELECT * FROM easy";
                 MySqlDataAdapter adapt = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 adapt.Fill(ds);
@@ -642,6 +672,9 @@ namespace TicTac
             }
         }
 
+        #endregion
+
+        #region LoadHardData
 
         private void LoadHardData()
         {
@@ -651,7 +684,7 @@ namespace TicTac
             try
             {
                 cmd = connection.CreateCommand();
-                cmd.CommandText = "SELECT * FROM history_hard";
+                cmd.CommandText = "SELECT * FROM hard";
                 MySqlDataAdapter adapt = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 adapt.Fill(ds);
@@ -671,5 +704,475 @@ namespace TicTac
             }
         }
 
+        #endregion
+
+
+
+        #region HardPlay
+        private String HardPlay()
+        {
+            
+            winner = CheckForWin();
+            
+            if (winner == null)
+            {
+                
+                Button[] btnarray = { buttonA0, buttonA1, buttonA2, buttonB0, buttonB1, buttonB2, buttonC0, buttonC1, buttonC2 };
+
+
+                if (turnCount != 9)
+                {
+                    turnCount++;
+
+                    if (btnarray[0].Text == "O" && btnarray[1].Text == "O" && btnarray[2].Text == "")
+                    {
+                        
+                         btnarray[2].Text = "O";
+                         btnarray[2].Enabled = false;
+                         
+
+                        
+                    }
+
+                    else if (btnarray[1].Text == "O" && btnarray[2].Text == "O" && btnarray[0].Text == "")
+                    {
+                        btnarray[0].Text = "O";
+                        btnarray[0].Enabled = false;
+                        
+                    }
+
+                    else if (btnarray[0].Text == "O" && btnarray[2].Text == "O" && btnarray[1].Text == "")
+                    {
+                        btnarray[1].Text = "O";
+                        btnarray[1].Enabled = false;
+                        
+                    }
+
+                    else if (btnarray[0].Text == "O" && btnarray[6].Text == "O" && btnarray[3].Text == "")
+                    {
+                        btnarray[3].Text = "O";
+                        btnarray[3].Enabled = false;
+                        
+                    }
+
+                    else if (btnarray[0].Text == "O" && btnarray[3].Text == "O" && btnarray[6].Text == "")
+                    {
+                        btnarray[6].Text = "O";
+                        btnarray[6].Enabled = false;
+                        
+
+                    }
+
+                    else if (btnarray[3].Text == "O" && btnarray[6].Text == "O" && btnarray[0].Text == "")
+                    {
+                        btnarray[0].Text = "O";
+                        btnarray[0].Enabled = false;
+                        
+
+                    }
+
+                    else if (btnarray[0].Text == "O" && btnarray[4].Text == "O" && btnarray[8].Text == "")
+                    {
+                        btnarray[8].Text = "O";
+                        btnarray[8].Enabled = false;
+                        
+
+                    }
+
+                    else if (btnarray[4].Text == "O" && btnarray[8].Text == "O" && btnarray[0].Text == "")
+                    {
+                        btnarray[0].Text = "O";
+                        btnarray[0].Enabled = false;
+                        
+
+                    }
+
+                    else if (btnarray[0].Text == "O" && btnarray[8].Text == "O" && btnarray[4].Text == "")
+                    {
+                        btnarray[4].Text = "O";
+                        btnarray[4].Enabled = false;
+                        
+
+                    }
+
+                    else if (btnarray[1].Text == "O" && btnarray[4].Text == "O" && btnarray[7].Text == "")
+                    {
+                        btnarray[7].Text = "O";
+                        btnarray[7].Enabled = false;
+                        
+
+                    }
+
+                    else if (btnarray[1].Text == "O" && btnarray[7].Text == "O" && btnarray[4].Text == "")
+                    {
+                        btnarray[4].Text = "O";
+                        btnarray[4].Enabled = false;
+                        
+
+                    }
+
+                    else if (btnarray[4].Text == "O" && btnarray[7].Text == "O" && btnarray[1].Text == "")
+                    {
+                        btnarray[1].Text = "O";
+                        btnarray[1].Enabled = false;
+                        
+
+                    }
+
+                    else if (btnarray[2].Text == "O" && btnarray[5].Text == "O" && btnarray[8].Text == "")
+                    {
+                        btnarray[8].Text = "O";
+                        btnarray[8].Enabled = false;
+                        
+
+                    }
+
+                    
+
+                    else if (btnarray[2].Text == "O" && btnarray[8].Text == "O" && btnarray[5].Text == "")
+                    {
+                        btnarray[5].Text = "O";
+                        btnarray[5].Enabled = false;
+                        
+
+                    }
+
+                    else if (btnarray[5].Text == "O" && btnarray[8].Text == "O" && btnarray[2].Text == "")
+                    {
+                        btnarray[2].Text = "O";
+                        btnarray[2].Enabled = false;
+                        
+
+                    }
+
+                    else if (btnarray[3].Text == "O" && btnarray[4].Text == "O" && btnarray[5].Text == "")
+                    {
+                        btnarray[5].Text = "O";
+                        btnarray[5].Enabled = false;
+                        
+                    }
+
+                    else if (btnarray[3].Text == "O" && btnarray[5].Text == "O" && btnarray[4].Text == "")
+                    {
+                        btnarray[4].Text = "O";
+                        btnarray[4].Enabled = false;
+                        
+
+                    }
+
+                    else if (btnarray[4].Text == "O" && btnarray[5].Text == "O" && btnarray[3].Text == "")
+                    {
+                        btnarray[3].Text = "O";
+                        btnarray[3].Enabled = false;
+                        
+                    }
+
+                    else if (btnarray[6].Text == "O" && btnarray[8].Text == "O" && btnarray[7].Text == "")
+                    {
+                        btnarray[7].Text = "O";
+                        btnarray[7].Enabled = false;
+                        
+                    }
+
+                    else if (btnarray[7].Text == "O" && btnarray[8].Text == "O" && btnarray[6].Text == "")
+                    {
+                        btnarray[6].Text = "O";
+                        btnarray[6].Enabled = false;
+                        
+                    }
+
+                    else if (btnarray[6].Text == "O" && btnarray[7].Text == "O" && btnarray[8].Text == "")
+                    {
+                        btnarray[8].Text = "O";
+                        btnarray[8].Enabled = false;
+                        
+                    }
+
+                    else if (btnarray[2].Text == "O" && btnarray[4].Text == "O" && btnarray[6].Text == "")
+                    {
+                        btnarray[6].Text = "O";
+                        btnarray[6].Enabled = false;
+                        
+                    }
+
+                    else if (btnarray[4].Text == "O" && btnarray[6].Text == "O" && btnarray[2].Text == "")
+                    {
+                        btnarray[2].Text = "O";
+                        btnarray[2].Enabled = false;
+                        
+                    }
+
+                    else if (btnarray[2].Text == "O" && btnarray[6].Text == "O" && btnarray[4].Text == "")
+                    {
+                        btnarray[4].Text = "O";
+                        btnarray[4].Enabled = false;
+                        
+                    }
+
+
+
+                    else if (btnarray[4].Text == "")
+                    {
+                        
+                        btnarray[4].Text = "O";
+                        btnarray[4].Enabled = false;
+                       
+
+                    }
+
+                    else if (btnarray[0].Text == "X" && btnarray[1].Text == "X" && btnarray[2].Text == "")
+                    {
+                        btnarray[2].Text = "O";
+                        btnarray[2].Enabled = false;
+                        
+                    }
+                    else if (btnarray[0].Text == "X" && btnarray[2].Text == "X" && btnarray[1].Text == "")
+                    {
+                        btnarray[1].Text = "O";
+                        btnarray[1].Enabled = false;
+
+                    }
+                    else if (btnarray[1].Text == "X" && btnarray[2].Text == "X" && btnarray[0].Text == "")
+                    {
+                        btnarray[0].Text = "O";
+                        btnarray[0].Enabled = false;
+
+                    }
+                    else if (btnarray[0].Text == "X" && btnarray[3].Text == "X" && btnarray[6].Text == "")
+                    {
+                        btnarray[6].Text = "O";
+                        btnarray[6].Enabled = false;
+
+                    }
+                    else if (btnarray[0].Text == "X" && btnarray[6].Text == "X" && btnarray[3].Text == "")
+                    {
+                        btnarray[3].Text = "O";
+                        btnarray[3].Enabled = false;
+
+                    }
+                    else if (btnarray[6].Text == "X" && btnarray[3].Text == "X" && btnarray[0].Text == "")
+                    {
+                        btnarray[0].Text = "O";
+                        btnarray[0].Enabled = false;
+
+                    }
+                    else if (btnarray[6].Text == "X" && btnarray[7].Text == "X" && btnarray[8].Text == "")
+                    {
+                        btnarray[8].Text = "O";
+                        btnarray[8].Enabled = false;
+
+                    }
+                    else if (btnarray[6].Text == "X" && btnarray[8].Text == "X" && btnarray[7].Text == "")
+                    {
+                        btnarray[7].Text = "O";
+                        btnarray[7].Enabled = false;
+
+                    }
+                    else if (btnarray[7].Text == "X" && btnarray[8].Text == "X" && btnarray[6].Text == "")
+                    {
+                        btnarray[6].Text = "O";
+                        btnarray[6].Enabled = false;
+
+                    }
+                    else if (btnarray[2].Text == "X" && btnarray[5].Text == "X" && btnarray[8].Text == "")
+                    {
+                        btnarray[8].Text = "O";
+                        btnarray[8].Enabled = false;
+
+                    }
+                    else if (btnarray[2].Text == "X" && btnarray[8].Text == "X" && btnarray[5].Text == "")
+                    {
+                        btnarray[5].Text = "O";
+                        btnarray[5].Enabled = false;
+
+                    }
+                    else if (btnarray[5].Text == "X" && btnarray[8].Text == "X" && btnarray[2].Text == "")
+                    {
+                        btnarray[2].Text = "O";
+                        btnarray[2].Enabled = false;
+
+                    }
+                    else if (btnarray[0].Text == "X" && btnarray[4].Text == "X" && btnarray[8].Text == "")
+                    {
+                        btnarray[8].Text = "O";
+                        btnarray[8].Enabled = false;
+
+                    }
+                    else if (btnarray[0].Text == "X" && btnarray[8].Text == "X" && btnarray[4].Text == "")
+                    {
+                        btnarray[4].Text = "O";
+                        btnarray[4].Enabled = false;
+
+                    }
+                    else if (btnarray[8].Text == "X" && btnarray[4].Text == "X" && btnarray[0].Text == "")
+                    {
+                        btnarray[0].Text = "O";
+                        btnarray[0].Enabled = false;
+
+                    }
+                    else if (btnarray[2].Text == "X" && btnarray[4].Text == "X" && btnarray[6].Text == "")
+                    {
+                        btnarray[6].Text = "O";
+                        btnarray[6].Enabled = false;
+
+                    }
+                    else if (btnarray[2].Text == "X" && btnarray[6].Text == "X" && btnarray[4].Text == "")
+                    {
+                        btnarray[4].Text = "O";
+                        btnarray[4].Enabled = false;
+
+                    }
+                    else if (btnarray[6].Text == "X" && btnarray[4].Text == "X" && btnarray[2].Text == "")
+                    {
+                        btnarray[2].Text = "O";
+                        btnarray[2].Enabled = false;
+
+                    }
+                    else if (btnarray[1].Text == "X" && btnarray[4].Text == "X" && btnarray[7].Text == "")
+                    {
+                        btnarray[7].Text = "O";
+                        btnarray[7].Enabled = false;
+
+                    }
+                    else if (btnarray[1].Text == "X" && btnarray[7].Text == "X" && btnarray[4].Text == "")
+                    {
+                        btnarray[4].Text = "O";
+                        btnarray[4].Enabled = false;
+
+                    }
+                    else if (btnarray[4].Text == "X" && btnarray[7].Text == "X" && btnarray[1].Text == "")
+                    {
+                        btnarray[1].Text = "O";
+                        btnarray[1].Enabled = false;
+
+                    }
+                    else if (btnarray[3].Text == "X" && btnarray[4].Text == "X" && btnarray[5].Text == "")
+                    {
+                        btnarray[5].Text = "O";
+                        btnarray[5].Enabled = false;
+
+                    }
+                    else if (btnarray[3].Text == "X" && btnarray[5].Text == "X" && btnarray[4].Text == "")
+                    {
+                        btnarray[4].Text = "O";
+                        btnarray[4].Enabled = false;
+
+                    }
+                    else if (btnarray[4].Text == "X" && btnarray[5].Text == "X" && btnarray[3].Text == "")
+                    {
+                        btnarray[3].Text = "O";
+                        btnarray[3].Enabled = false;
+
+                    }
+                    else
+                    {
+                        //select a button which is still enabled
+                        while (btnarray[random].Enabled == false)
+                        {
+                            random = rnd.Next(0, 9);
+                        }
+                        
+
+                        btnarray[random].Text = "O";
+                        btnarray[random].Enabled = false;
+                    
+
+                    }
+                    
+                    winner = CheckForWin();
+                    
+                    
+                }
+                //change the turn
+                TurnChanger(turnCount);
+                
+                
+                
+            }
+            return winner;
+        }
+
+        #endregion
+
+        private void buttonMenu_Click(object sender, EventArgs e)
+        {
+            menu.Show();
+            this.Visible = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            String GameWinner = labelP1Name.Text;
+            int Player1Score = Player1Win;
+            int Player2Score = Player2Win;
+            mode = labelMode.Text;
+            level = labelLevel.Text;
+            int Score = Player1Win - Player2Win;
+
+
+            MySqlConnection connection = new MySqlConnection(MyConnectionString);
+            connection.Open();
+            try {
+                cmd = new MySqlCommand("select min(score) from easy", connection);
+                int existingScore = Int32.Parse(cmd.ExecuteScalar().ToString());
+                if (Score > existingScore)
+                {
+                    if (level == "easy")
+                    {
+                        try
+                        {
+                            cmd = connection.CreateCommand();
+                            cmd.CommandText = "INSERT INTO easy(score,name) VALUES(@score,@name)";
+                            cmd.Parameters.AddWithValue("@score", Score);
+                            cmd.Parameters.AddWithValue("@name", GameWinner);
+
+
+                            cmd.ExecuteNonQuery();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                        finally
+                        {
+                            if (connection.State == ConnectionState.Open)
+                            {
+                                connection.Close();
+                                //LoadData();
+                            }
+                        }
+                    }
+                    else if (level == "hard")
+                    {
+                        try
+                        {
+                            cmd = connection.CreateCommand();
+                            cmd.CommandText = "INSERT INTO hard(score,name) VALUES(@score,@name)";
+                            cmd.Parameters.AddWithValue("@score", Score);
+                            cmd.Parameters.AddWithValue("@name", GameWinner);
+
+
+                            cmd.ExecuteNonQuery();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                        
+                    }
+                    
+
+                    
+                }
+            }
+            finally {
+                connection.Close();
+    }
+
+
+
+          }
+            
+        
     }
 }

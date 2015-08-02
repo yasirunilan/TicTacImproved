@@ -48,14 +48,15 @@
             this.labelHighScoreEasy.AutoSize = true;
             this.labelHighScoreEasy.Location = new System.Drawing.Point(99, 19);
             this.labelHighScoreEasy.Name = "labelHighScoreEasy";
-            this.labelHighScoreEasy.Size = new System.Drawing.Size(133, 13);
+            this.labelHighScoreEasy.Size = new System.Drawing.Size(68, 13);
             this.labelHighScoreEasy.TabIndex = 1;
-            this.labelHighScoreEasy.Text = "High Scores of Easy Mode";
+            this.labelHighScoreEasy.Text = "High Scores ";
             // 
             // History
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Yellow;
             this.ClientSize = new System.Drawing.Size(308, 323);
             this.Controls.Add(this.labelHighScoreEasy);
             this.Controls.Add(this.dataGridView1);

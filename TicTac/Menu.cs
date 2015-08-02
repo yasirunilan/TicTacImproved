@@ -15,6 +15,8 @@ namespace TicTac
         public Menu()
         {
             InitializeComponent();
+            this.ControlBox = false;
+            
         }
 
         String mode;
@@ -22,7 +24,7 @@ namespace TicTac
         String player1;
         String player2;
 
-        Game game = new Game();
+        
 
 
         private void buttonTP_Click(object sender, EventArgs e)
@@ -34,7 +36,7 @@ namespace TicTac
         private void buttonExit_Click(object sender, EventArgs e)
         {
             //display a message box when the user clicks exit button
-            DialogResult exit = MessageBox.Show("Do you want to exit the Game?", "Want to exit", MessageBoxButtons.YesNo);
+            DialogResult exit = MessageBox.Show("Do you want to exit the Game?", "Exit", MessageBoxButtons.YesNo);
 
             //exit the application if user confirms the exit command
             if (exit == DialogResult.Yes)
@@ -47,8 +49,10 @@ namespace TicTac
         {
             player1 = textBoxP1.Text;
             player2 = textBoxP2.Text;
+
+            Game game = new Game();
             
-            //this.Visible = false;
+            this.Visible = false;
             
             game.labelLevel.Text = level;
             game.labelMode.Text = mode;
@@ -80,6 +84,7 @@ namespace TicTac
             if (radioButtonTP.Checked == true)
             {
                 mode = "Two Player";
+                textBoxP2.Text = "";
                 panelLevel.Enabled = false;
                 panelP2.Enabled = true;
             }

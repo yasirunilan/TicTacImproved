@@ -15,10 +15,14 @@ namespace TicTac
         public StartWindow()
         {
             InitializeComponent();
+            this.ControlBox = false;
         }
-        Menu menu = new Menu();
+        
+        
+
         private void buttonPlay_Click(object sender, EventArgs e)
         {
+            Menu menu = new Menu();
             menu.Show();
             this.Visible = false;
         }
@@ -26,13 +30,18 @@ namespace TicTac
         private void buttonExit_Click(object sender, EventArgs e)
         {
             //display a message box when the user clicks exit button
-            DialogResult exit = MessageBox.Show("Do you want to exit the Game?", "Want to exit", MessageBoxButtons.YesNo);
+            DialogResult exit = MessageBox.Show("Do you want to exit the Game?", "Exit", MessageBoxButtons.YesNo);
 
             //exit the application if user confirms the exit command
             if (exit == DialogResult.Yes)
             {
                 System.Windows.Forms.Application.Exit();
             }
+        }
+
+        private void StartWindow_Load(object sender, EventArgs e)
+        {
+
         }
 
     }

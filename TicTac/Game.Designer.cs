@@ -49,210 +49,251 @@
             this.labelWinner = new System.Windows.Forms.Label();
             this.labelLevel = new System.Windows.Forms.Label();
             this.labelMode = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonA0
             // 
+            this.buttonA0.BackColor = System.Drawing.Color.Orange;
             this.buttonA0.Font = new System.Drawing.Font("Ravie", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonA0.Location = new System.Drawing.Point(14, 59);
             this.buttonA0.Name = "buttonA0";
             this.buttonA0.Size = new System.Drawing.Size(70, 70);
             this.buttonA0.TabIndex = 0;
-            this.buttonA0.UseVisualStyleBackColor = true;
+            this.buttonA0.UseVisualStyleBackColor = false;
             this.buttonA0.Click += new System.EventHandler(this.buttonA0_Click);
             // 
             // buttonA1
             // 
+            this.buttonA1.BackColor = System.Drawing.Color.Orange;
             this.buttonA1.Font = new System.Drawing.Font("Ravie", 36F, System.Drawing.FontStyle.Bold);
             this.buttonA1.Location = new System.Drawing.Point(85, 59);
             this.buttonA1.Name = "buttonA1";
             this.buttonA1.Size = new System.Drawing.Size(70, 70);
             this.buttonA1.TabIndex = 1;
-            this.buttonA1.UseVisualStyleBackColor = true;
+            this.buttonA1.UseVisualStyleBackColor = false;
             this.buttonA1.Click += new System.EventHandler(this.buttonA1_Click);
             // 
             // buttonA2
             // 
+            this.buttonA2.BackColor = System.Drawing.Color.Orange;
             this.buttonA2.Font = new System.Drawing.Font("Ravie", 36F, System.Drawing.FontStyle.Bold);
             this.buttonA2.Location = new System.Drawing.Point(156, 59);
             this.buttonA2.Name = "buttonA2";
             this.buttonA2.Size = new System.Drawing.Size(70, 70);
             this.buttonA2.TabIndex = 2;
-            this.buttonA2.UseVisualStyleBackColor = true;
+            this.buttonA2.UseVisualStyleBackColor = false;
             this.buttonA2.Click += new System.EventHandler(this.buttonA2_Click);
             // 
             // buttonB0
             // 
+            this.buttonB0.BackColor = System.Drawing.Color.Orange;
             this.buttonB0.Font = new System.Drawing.Font("Ravie", 36F, System.Drawing.FontStyle.Bold);
             this.buttonB0.Location = new System.Drawing.Point(14, 130);
             this.buttonB0.Name = "buttonB0";
             this.buttonB0.Size = new System.Drawing.Size(70, 70);
             this.buttonB0.TabIndex = 3;
-            this.buttonB0.UseVisualStyleBackColor = true;
+            this.buttonB0.UseVisualStyleBackColor = false;
             this.buttonB0.Click += new System.EventHandler(this.buttonB0_Click);
             // 
             // buttonB1
             // 
+            this.buttonB1.BackColor = System.Drawing.Color.Orange;
             this.buttonB1.Font = new System.Drawing.Font("Ravie", 36F, System.Drawing.FontStyle.Bold);
             this.buttonB1.Location = new System.Drawing.Point(85, 130);
             this.buttonB1.Name = "buttonB1";
             this.buttonB1.Size = new System.Drawing.Size(70, 70);
             this.buttonB1.TabIndex = 4;
-            this.buttonB1.UseVisualStyleBackColor = true;
+            this.buttonB1.UseVisualStyleBackColor = false;
             this.buttonB1.Click += new System.EventHandler(this.buttonB1_Click);
             // 
             // buttonB2
             // 
+            this.buttonB2.BackColor = System.Drawing.Color.Orange;
             this.buttonB2.Font = new System.Drawing.Font("Ravie", 36F, System.Drawing.FontStyle.Bold);
             this.buttonB2.Location = new System.Drawing.Point(156, 130);
             this.buttonB2.Name = "buttonB2";
             this.buttonB2.Size = new System.Drawing.Size(70, 70);
             this.buttonB2.TabIndex = 5;
-            this.buttonB2.UseVisualStyleBackColor = true;
+            this.buttonB2.UseVisualStyleBackColor = false;
             this.buttonB2.Click += new System.EventHandler(this.buttonB2_Click);
             // 
             // buttonC0
             // 
+            this.buttonC0.BackColor = System.Drawing.Color.Orange;
             this.buttonC0.Font = new System.Drawing.Font("Ravie", 36F, System.Drawing.FontStyle.Bold);
             this.buttonC0.Location = new System.Drawing.Point(14, 201);
             this.buttonC0.Name = "buttonC0";
             this.buttonC0.Size = new System.Drawing.Size(70, 70);
             this.buttonC0.TabIndex = 6;
-            this.buttonC0.UseVisualStyleBackColor = true;
+            this.buttonC0.UseVisualStyleBackColor = false;
             this.buttonC0.Click += new System.EventHandler(this.buttonC0_Click);
             // 
             // buttonC1
             // 
+            this.buttonC1.BackColor = System.Drawing.Color.Orange;
             this.buttonC1.Font = new System.Drawing.Font("Ravie", 36F, System.Drawing.FontStyle.Bold);
             this.buttonC1.Location = new System.Drawing.Point(85, 201);
             this.buttonC1.Name = "buttonC1";
             this.buttonC1.Size = new System.Drawing.Size(70, 70);
             this.buttonC1.TabIndex = 7;
-            this.buttonC1.UseVisualStyleBackColor = true;
+            this.buttonC1.UseVisualStyleBackColor = false;
             this.buttonC1.Click += new System.EventHandler(this.buttonC1_Click);
             // 
             // buttonC2
             // 
+            this.buttonC2.BackColor = System.Drawing.Color.Orange;
             this.buttonC2.Font = new System.Drawing.Font("Ravie", 36F, System.Drawing.FontStyle.Bold);
             this.buttonC2.Location = new System.Drawing.Point(156, 201);
             this.buttonC2.Name = "buttonC2";
             this.buttonC2.Size = new System.Drawing.Size(70, 70);
             this.buttonC2.TabIndex = 8;
-            this.buttonC2.UseVisualStyleBackColor = true;
+            this.buttonC2.UseVisualStyleBackColor = false;
             this.buttonC2.Click += new System.EventHandler(this.buttonC2_Click);
             // 
             // labelTurnIndicator
             // 
             this.labelTurnIndicator.AutoSize = true;
+            this.labelTurnIndicator.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTurnIndicator.Location = new System.Drawing.Point(12, 29);
             this.labelTurnIndicator.Name = "labelTurnIndicator";
-            this.labelTurnIndicator.Size = new System.Drawing.Size(82, 13);
+            this.labelTurnIndicator.Size = new System.Drawing.Size(137, 20);
             this.labelTurnIndicator.TabIndex = 9;
             this.labelTurnIndicator.Text = "Start The Game";
             // 
             // buttonNew
             // 
-            this.buttonNew.Location = new System.Drawing.Point(292, 59);
+            this.buttonNew.BackColor = System.Drawing.Color.Orange;
+            this.buttonNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNew.Location = new System.Drawing.Point(292, 52);
             this.buttonNew.Name = "buttonNew";
             this.buttonNew.Size = new System.Drawing.Size(75, 23);
             this.buttonNew.TabIndex = 10;
             this.buttonNew.Text = "New Game";
-            this.buttonNew.UseVisualStyleBackColor = true;
+            this.buttonNew.UseVisualStyleBackColor = false;
             this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
             // 
             // buttonHistory
             // 
-            this.buttonHistory.Location = new System.Drawing.Point(292, 88);
+            this.buttonHistory.BackColor = System.Drawing.Color.Orange;
+            this.buttonHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonHistory.Location = new System.Drawing.Point(292, 79);
             this.buttonHistory.Name = "buttonHistory";
-            this.buttonHistory.Size = new System.Drawing.Size(75, 23);
+            this.buttonHistory.Size = new System.Drawing.Size(75, 25);
             this.buttonHistory.TabIndex = 11;
             this.buttonHistory.Text = "History";
-            this.buttonHistory.UseVisualStyleBackColor = true;
+            this.buttonHistory.UseVisualStyleBackColor = false;
             this.buttonHistory.Click += new System.EventHandler(this.buttonHistory_Click);
             // 
             // buttonMenu
             // 
-            this.buttonMenu.Location = new System.Drawing.Point(292, 117);
+            this.buttonMenu.BackColor = System.Drawing.Color.Orange;
+            this.buttonMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonMenu.Location = new System.Drawing.Point(292, 107);
             this.buttonMenu.Name = "buttonMenu";
-            this.buttonMenu.Size = new System.Drawing.Size(75, 23);
+            this.buttonMenu.Size = new System.Drawing.Size(75, 26);
             this.buttonMenu.TabIndex = 12;
             this.buttonMenu.Text = "Menu";
-            this.buttonMenu.UseVisualStyleBackColor = true;
+            this.buttonMenu.UseVisualStyleBackColor = false;
+            this.buttonMenu.Click += new System.EventHandler(this.buttonMenu_Click);
             // 
             // buttonExit
             // 
-            this.buttonExit.Location = new System.Drawing.Point(292, 146);
+            this.buttonExit.BackColor = System.Drawing.Color.Orange;
+            this.buttonExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonExit.Location = new System.Drawing.Point(293, 162);
             this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(75, 23);
+            this.buttonExit.Size = new System.Drawing.Size(75, 27);
             this.buttonExit.TabIndex = 14;
             this.buttonExit.Text = "Exit";
-            this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.UseVisualStyleBackColor = false;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // labelP1Name
             // 
             this.labelP1Name.AutoSize = true;
-            this.labelP1Name.Location = new System.Drawing.Point(244, 217);
+            this.labelP1Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelP1Name.Location = new System.Drawing.Point(232, 214);
             this.labelP1Name.Name = "labelP1Name";
-            this.labelP1Name.Size = new System.Drawing.Size(82, 13);
+            this.labelP1Name.Size = new System.Drawing.Size(128, 18);
             this.labelP1Name.TabIndex = 15;
             this.labelP1Name.Text = "Player 1 Name :";
             // 
             // labelP2Name
             // 
             this.labelP2Name.AutoSize = true;
-            this.labelP2Name.Location = new System.Drawing.Point(244, 242);
+            this.labelP2Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelP2Name.Location = new System.Drawing.Point(232, 241);
             this.labelP2Name.Name = "labelP2Name";
-            this.labelP2Name.Size = new System.Drawing.Size(76, 13);
+            this.labelP2Name.Size = new System.Drawing.Size(118, 18);
             this.labelP2Name.TabIndex = 16;
             this.labelP2Name.Text = "Player 2 Name";
             // 
             // textBoxScore1
             // 
-            this.textBoxScore1.Location = new System.Drawing.Point(332, 214);
+            this.textBoxScore1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxScore1.Location = new System.Drawing.Point(348, 215);
             this.textBoxScore1.Name = "textBoxScore1";
-            this.textBoxScore1.Size = new System.Drawing.Size(30, 20);
+            this.textBoxScore1.Size = new System.Drawing.Size(30, 24);
             this.textBoxScore1.TabIndex = 17;
             // 
             // textBoxScore2
             // 
-            this.textBoxScore2.Location = new System.Drawing.Point(332, 239);
+            this.textBoxScore2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxScore2.Location = new System.Drawing.Point(348, 242);
             this.textBoxScore2.Name = "textBoxScore2";
-            this.textBoxScore2.Size = new System.Drawing.Size(30, 20);
+            this.textBoxScore2.Size = new System.Drawing.Size(30, 24);
             this.textBoxScore2.TabIndex = 18;
             // 
             // labelWinner
             // 
             this.labelWinner.AutoSize = true;
+            this.labelWinner.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelWinner.Location = new System.Drawing.Point(261, 190);
             this.labelWinner.Name = "labelWinner";
-            this.labelWinner.Size = new System.Drawing.Size(62, 13);
+            this.labelWinner.Size = new System.Drawing.Size(44, 18);
             this.labelWinner.TabIndex = 19;
-            this.labelWinner.Text = "Yasiru Won";
+            this.labelWinner.Text = "Start";
             // 
             // labelLevel
             // 
             this.labelLevel.AutoSize = true;
+            this.labelLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLevel.Location = new System.Drawing.Point(315, 29);
             this.labelLevel.Name = "labelLevel";
-            this.labelLevel.Size = new System.Drawing.Size(33, 13);
+            this.labelLevel.Size = new System.Drawing.Size(47, 18);
             this.labelLevel.TabIndex = 20;
             this.labelLevel.Text = "Level";
             // 
             // labelMode
             // 
             this.labelMode.AutoSize = true;
-            this.labelMode.Location = new System.Drawing.Point(314, 9);
+            this.labelMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMode.Location = new System.Drawing.Point(261, 9);
             this.labelMode.Name = "labelMode";
-            this.labelMode.Size = new System.Drawing.Size(34, 13);
+            this.labelMode.Size = new System.Drawing.Size(50, 18);
             this.labelMode.TabIndex = 21;
             this.labelMode.Text = "Mode";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Orange;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(292, 134);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 26);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "Save";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Yellow;
             this.ClientSize = new System.Drawing.Size(379, 287);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.labelMode);
             this.Controls.Add(this.labelLevel);
             this.Controls.Add(this.labelWinner);
@@ -305,5 +346,6 @@
         public System.Windows.Forms.Label labelMode;
         public System.Windows.Forms.Label labelP1Name;
         public System.Windows.Forms.Label labelP2Name;
+        private System.Windows.Forms.Button button1;
     }
 }
