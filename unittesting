@@ -1,0 +1,136 @@
+using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace TicTacToeTest2
+{
+    [TestClass]
+    public class TicTacToeregex
+    {
+        [TestMethod]
+        public void Xinarow_getwinnerX()
+        {
+            const string initialboard = "XXX" +
+                                        "   " +
+                                        "   ";
+
+            Game game = new Game(initialboard);
+
+            Assert.AreEqual("X", game.getwinner());
+        }
+
+        [TestMethod]
+        public void Xin2ndrow_getwinnerX()
+        {
+            const string initialboard = "   " +
+                                        "XXX" +
+                                        "   ";
+
+            Game game = new Game(initialboard);
+
+            Assert.AreEqual("X", game.getwinner());
+        }
+
+        [TestMethod]
+        public void Xin3rdrow_getwinnerX()
+        {
+            const string initialboard = "   " +
+                                        "   " +
+                                        "XXX";
+
+            Game game = new Game(initialboard);
+
+            Assert.AreEqual("X", game.getwinner());
+        }
+
+        [TestMethod]
+        public void Oin3rdrow_getwinnerX()
+        {
+            const string initialboard = "   " +
+                                        "   " +
+                                        "OOO";
+
+            Game game = new Game(initialboard);
+
+            Assert.AreEqual("O", game.getwinner());
+        }
+    }
+
+    [TestClass]
+    public class TicTacToe
+    {
+        [TestMethod]
+        public void p1wins_allXinraw0()
+        {
+
+            Game game = new Game();
+
+            game.play("X", 0, 0);
+            game.play("O", 0, 1);
+            game.play("X", 1, 0);
+            game.play("O", 2, 1);
+            game.play("X", 2, 0);
+
+            //P1 wins
+            Assert.IsTrue(game.getwinner() == "X");
+        }
+
+        [TestMethod]
+        public void p2wins_allOinraw0()
+        {
+
+            Game game = new Game();
+
+            game.play("O", 0, 0);
+            game.play("X", 0, 1);
+            game.play("O", 1, 0);
+            game.play("X", 2, 1);
+            game.play("O", 2, 0);
+
+            //P2 wins
+            Assert.IsTrue(game.getwinner() == "O");
+        }
+
+
+        
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void sameplayerplaystwice_exception()
+        {
+            Game game = new Game();
+            game.play("X", 0, 0);
+            game.play("X", 0, 1);
+
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void playersplayonsamefield_exception()
+        {
+            Game game = new Game();
+            game.play("X", 1, 0);
+            game.play("Y", 1, 0);
+
+        }
+
+        [TestMethod]
+        public void noresult()
+        {
+            Assert.Inconclusive();
+
+        }
+
+        [TestMethod]
+        public void nowinneryet()
+        {
+            Game game = new Game();
+            game.play("X", 0, 0);
+            Assert.IsTrue(game.getwinner() == string.Empty);
+            
+
+        }
+
+    }
+
+}   
+   
