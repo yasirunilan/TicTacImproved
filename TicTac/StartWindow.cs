@@ -19,7 +19,7 @@ namespace TicTac
         }
         
         
-
+        // control for Play button
         private void buttonPlay_Click(object sender, EventArgs e)
         {
             Menu menu = new Menu();

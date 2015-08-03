@@ -19,6 +19,8 @@ namespace TicTac
             InitializeComponent();
             this.ControlBox = false;
         }
+
+
         Menu menu = new Menu();
         int turnCount = 0;
         int random = 0;
@@ -30,8 +32,11 @@ namespace TicTac
         int Player1Win = 0;
         int Player2Win = 0;
         History history = new History();
+        
+        
         String MyConnectionString = "Server=localhost;Database=tictactoe;Uid=root;Pwd=qwerty";
         MySqlCommand cmd;
+
 
         #region buttonA0Click
 
@@ -1094,11 +1099,18 @@ namespace TicTac
 
         #endregion
 
+
+        #region Menu Button
+
         private void buttonMenu_Click(object sender, EventArgs e)
         {
             menu.Show();
             this.Visible = false;
         }
+
+        #endregion
+
+        #region SaveButton
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -1171,8 +1183,9 @@ namespace TicTac
 
 
 
-          }
-            
-        
+        }
+        #endregion
+
+
     }
 }
